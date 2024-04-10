@@ -1,0 +1,358 @@
+(Главная)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример сайта на чистом JS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .login-button {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        main h2 {
+            text-align: center;
+        }
+
+        main p {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Хедер -->
+    <header>
+        <h1>Пример сайта на чистом JS</h1>
+        <!-- Кнопка логин -->
+        <button class="login-button" onclick="redirectToLoginPage()">Логин</button>
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        <h2>Основные данные</h2>
+        <p>Краткая тема</p>
+        <p>Основное описание темы</p>
+    </main>
+    <main>
+        <h2>Основные данные</h2>
+        <p>Краткая тема</p>
+        <p>Основное описание темы</p>
+    </main>
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2024 Пример сайта на чистом JS</p>
+    </footer>
+
+    <!-- JavaScript код для перенаправления на страницу логина -->
+    <script>
+        // Функция для перенаправления на страницу логина
+        function redirectToLoginPage() {
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>
+(Авториз)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация и Регистрация</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Авторизация и Регистрация</h1>
+
+        <h2>Регистрация</h2>
+        <form id="registrationForm">
+            <label for="regUsername">Имя пользователя:</label>
+            <input type="text" id="regUsername" name="regUsername">
+
+            <label for="regPassword">Пароль:</label>
+            <input type="password" id="regPassword" name="regPassword">
+
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+
+        <hr>
+
+        <h2>Авторизация</h2>
+        <form id="loginForm">
+            <label for="loginUsername">Имя пользователя:</label>
+            <input type="text" id="loginUsername" name="loginUsername">
+
+            <label for="loginPassword">Пароль:</label>
+            <input type="password" id="loginPassword" name="loginPassword">
+        </form>
+        <button onclick="login()">Войти</button>
+        <button onclick="goBack()">Вернуться назад</button>
+    </div>
+
+    <script>
+        // Функция для обработки регистрации
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('regUsername').value;
+            const password = document.getElementById('regPassword').value;
+
+            // Здесь может быть отправка данных на сервер или сохранение в локальное хранилище браузера
+            // В данном примере просто сохраняем в память браузера
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+
+            alert('Регистрация успешно завершена!');
+        });
+
+        // Функция для обработки авторизации
+        function login() {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Получаем сохранённые данные из памяти браузера
+            const storedUsername = localStorage.getItem('username');
+            const storedPassword = localStorage.getItem('password');
+
+            // Проверяем, совпадают ли введённые данные с сохранёнными
+            if (username === storedUsername && password === storedPassword) {
+                alert('Авторизация успешна!');
+                window.location.href = "profile.html"; // Перенаправляем на страницу профиля после успешной авторизации
+            } else {
+                alert('Неверное имя пользователя или пароль.');
+            }
+            
+        }
+        function goBack() {
+            window.location.href = "Главная.html";
+        }
+    </script>
+</body>
+</html>
+(Прифиль)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Профиль пользователя</h1>
+        <p>Имя: <span id="username"></span></p>
+        <p>Возраст: <span id="age"></span></p>
+        <input type="number" id="newAge" placeholder="Введите ваш возраст">
+        <textarea id="about" placeholder="Напишите о себе"></textarea>
+        <button onclick="changeUsername()">Изменить имя</button>
+        <button onclick="saveAll()">Сохранить все</button>
+        <button onclick="logout()">Выйти</button>
+    </div>
+
+    <script>
+        // Получаем сохранённое имя пользователя из памяти браузера и отображаем его на странице
+        const storedUsername = localStorage.getItem('username');
+        document.getElementById('username').textContent = storedUsername;
+
+        // Получаем сохранённый возраст пользователя из памяти браузера и отображаем его на странице
+        const storedAge = localStorage.getItem('age');
+        if (storedAge) {
+            document.getElementById('age').textContent = storedAge;
+        }
+
+        // Получаем сохранённые данные о себе из памяти браузера и отображаем их на странице
+        const storedAbout = localStorage.getItem('about');
+        if (storedAbout) {
+            document.getElementById('about').value = storedAbout;
+        }
+
+        // Функция для изменения имени пользователя
+        function changeUsername() {
+            const newUsername = prompt('Введите новое имя пользователя:');
+            if (newUsername) {
+                localStorage.setItem('username', newUsername);
+                document.getElementById('username').textContent = newUsername;
+            }
+        }
+
+        // Функция для сохранения всех данных
+        function saveAll() {
+            const newAge = document.getElementById('newAge').value;
+            localStorage.setItem('age', newAge);
+
+            const about = document.getElementById('about').value;
+            localStorage.setItem('about', about);
+
+            alert('Все данные успешно сохранены!');
+            location.reload(); // Обновляем страницу после сохранения данных
+        }
+
+        // Функция для выхода из профиля (очистка сохранённых данных)
+        function logout() {
+            localStorage.removeItem('username');
+            localStorage.removeItem('password');
+            localStorage.removeItem('about');
+            localStorage.removeItem('age');
+            alert('Вы успешно вышли из профиля.');
+            window.location.href = "login.html"; // Перенаправляем на страницу логина после выхода
+        }
+    </script>
+</body>
+</html>
+
