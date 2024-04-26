@@ -1,0 +1,565 @@
+(Главная)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример сайта на чистом JS</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            
+        }
+
+ 
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        main h2 {
+            text-align: center;
+        }
+
+        main p {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Хедер -->
+    <header>
+        <div class="container">
+            <h1 id="siteTitle">Название сайта      </h1>
+            <button id="loginBtn" onclick="login()">Логин</button>
+            <!-- Остальной контент страницы -->
+        </div>
+    
+        <script>
+            // Функция для проверки типа устройства и применения соответствующих стилей
+            function checkDeviceType() {
+                if (window.matchMedia("(max-width: 600px)").matches) {
+                    // Для мобильных устройств
+                    document.getElementById('siteTitle').style.display = 'block'; // Показываем название сайта
+                    document.getElementById('loginBtn').style.display = 'block'; // Показываем кнопку логина
+                } else {
+                    // Для компьютеров
+                    document.getElementById('siteTitle').style.display = 'inline-block'; // Оставляем название сайта в строчке
+                    document.getElementById('loginBtn').style.display = 'inline-block'; // Оставляем кнопку логина в строчке
+                }
+            }
+    
+            // Вызываем функцию для проверки типа устройства при загрузке страницы и при изменении размера окна
+            window.onload = checkDeviceType;
+            window.onresize = checkDeviceType;
+    
+            // Функция для логина
+            function login() {
+                window.location.href = "login.html";
+            }
+        </script>
+        
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        <h2>Основные данные</h2>
+        <p>Краткая тема</p>
+        <p>Основное описание темы</p>
+    </main>
+    <main>
+        <h2>Основные данные</h2>
+        <p>Краткая тема</p>
+        <p>Основное описание темы</p>
+    </main>
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2024 Пример сайта на чистом JS</p>
+    </footer>
+
+    <!-- JavaScript код для перенаправления на страницу логина -->
+   
+</body>
+</html>
+
+
+(Стиль мобилки)
+/* Общие стили, которые применяются на всех экранах */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative; /* Для позиционирования кнопки */
+}
+
+h1 {
+    margin-bottom: 20px;
+    
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Медиа-запрос для мобильных устройств с шириной экрана до 600px */
+@media screen and (max-width: 600px) {
+    button {
+        position: relative; /* Возвращаем относительное позиционирование */
+        display: block;
+        margin: 10px auto 0; /* Перемещаем кнопку под название */
+    }
+    button {
+        position: relative; /* Возвращаем относительное позиционирование */
+        display: block;
+        margin: 10px auto 0; /* Перемещаем кнопку под название */
+    }
+}
+
+/* Медиа-запрос для устройств с шириной экрана от 601px и выше */
+@media screen and (min-width: 601px) {
+    .container {
+        display: flex;
+        justify-content: space-between; /* Равномерное распределение элементов по ширине контейнера */
+        align-items: center; /* Выравнивание элементов по вертикали */
+    }
+
+    button {
+        order: 2; /* Меняем порядок кнопки, чтобы она оказалась справа */
+    }
+}
+
+(Авторизация)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация и Регистрация</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Авторизация и Регистрация</h1>
+
+        <h2>Регистрация</h2>
+        <form id="registrationForm">
+            <label for="regUsername">Имя пользователя:</label>
+            <input type="text" id="regUsername" name="regUsername">
+
+            <label for="regPassword">Пароль:</label>
+            <input type="password" id="regPassword" name="regPassword">
+
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+
+        <hr>
+
+        <h2>Авторизация</h2>
+        <form id="loginForm">
+            <label for="loginUsername">Имя пользователя:</label>
+            <input type="text" id="loginUsername" name="loginUsername">
+
+            <label for="loginPassword">Пароль:</label>
+            <input type="password" id="loginPassword" name="loginPassword">
+        </form>
+        <button onclick="login()">Войти</button>
+        <button onclick="goBack()">Вернуться назад</button>
+    </div>
+
+    <script>
+        // Функция для обработки регистрации
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('regUsername').value;
+            const password = document.getElementById('regPassword').value;
+
+            // Здесь может быть отправка данных на сервер или сохранение в локальное хранилище браузера
+            // В данном примере просто сохраняем в память браузера
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+
+            alert('Регистрация успешно завершена!');
+        });
+
+        // Функция для обработки авторизации
+        function login() {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Проверяем, является ли пользователь администратором
+            if (username === 'Admin' && password === 'Pass') {
+                localStorage.setItem('isAdmin', true); // Сохраняем статус администратора
+                window.location.href = "profile.html"; // Перенаправляем на страницу профиля администратора
+            } else {
+                // Получаем сохранённые данные из памяти браузера
+                const storedUsername = localStorage.getItem('username');
+                const storedPassword = localStorage.getItem('password');
+
+                // Проверяем, совпадают ли введённые данные с сохранёнными
+                if (username === storedUsername && password === storedPassword) {
+                    alert('Авторизация успешна!');
+                    window.location.href = "profile.html"; // Перенаправляем на страницу профиля после успешной авторизации
+                } else {
+                    alert('Неверное имя пользователя или пароль.');
+                }
+            }
+        }
+
+        function goBack() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
+
+
+(Профиль)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+    <style>
+       /* Общие стили, которые применяются на всех экранах */
+       body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        text-align: center;
+    }
+
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Медиа-запрос для мобильных устройств с шириной экрана до 600px */
+    @media screen and (max-width: 600px) {
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        input, textarea {
+            width: calc(100% - 20px); /* Ширина поля ввода уменьшается на 20px для учета внутренних отступов */
+        }
+    }
+
+    /* Стили для кнопок Одобрить и Отклонить */
+    .approve-reject-buttons {
+        display: none; /* По умолчанию скрываем кнопки */
+    }
+
+    /* Стили для блоков текста */
+    .textBlock {
+        border: 1px solid #ccc; /* Обводка границы */
+        padding: 10px;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    /* Позволяет тексту переходить на новую строку внутри блока */
+    .textBlock p {
+        word-wrap: break-word;
+        margin-bottom: 5px;
+    }
+
+    /* Стили для кнопки Удалить */
+    .delete-button {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: #dc3545;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Профиль пользователя</h1>
+
+        <!-- Кнопка "Администрация" -->
+        <button onclick="openAdminPanel()">Администрация</button>
+
+        <p>Имя: <span id="username"></span></p>
+
+        <!-- Кнопка для открытия всплывающего окна -->
+        <button onclick="openPopup()">Добавить текст</button>
+
+        <!-- Контейнер для блоков текста -->
+        <div id="textBlocks"></div>
+
+        <!-- Убраны панели с возрастом и о себе -->
+        <button onclick="logout()">Выйти</button>
+        <button onclick="updateResults()">Обновить результат</button>
+    </div>
+
+    <script>
+        // Получаем сохранённое имя пользователя из памяти браузера и отображаем его на странице
+        const storedUsername = localStorage.getItem('username');
+        document.getElementById('username').textContent = storedUsername;
+
+        // Восстанавливаем сохраненные блоки при загрузке страницы
+        window.onload = function() {
+            const savedBlocks = JSON.parse(localStorage.getItem('textBlocks'));
+            if (savedBlocks) {
+                savedBlocks.forEach((block, index) => addTextBlock(block.text, block.status, index));
+            }
+        };
+
+        // Инициализируем переменную для хранения уникального счетчика
+        let counter = 0;
+
+        // Функция для открытия всплывающего окна
+        function openPopup() {
+            const blockId = `textBlock_${counter}`;
+            const popupPanel = document.createElement('div');
+            popupPanel.innerHTML = `
+                <div class="textBlock" id="${blockId}" style="display: none;">
+                    <textarea id="popupInput_${counter}" placeholder="Введите текст"></textarea>
+                    <button onclick="confirmText(${counter})">Подтвердить</button>
+                </div>
+            `;
+            document.getElementById('textBlocks').appendChild(popupPanel);
+            document.getElementById(blockId).style.display = 'block';
+            counter++;
+        }
+
+        // Функция для подтверждения введенного текста в всплывающем окне
+        function confirmText(index) {
+            const text = document.getElementById(`popupInput_${index}`).value;
+            if (text.trim() !== '') {
+                addTextBlock(text, 'На рассмотрении', index);
+                document.getElementById(`textBlock_${index}`).style.display = 'none';
+            } else {
+                alert('Пожалуйста, введите текст.');
+            }
+        }
+
+        // Функция для добавления блока текста на страницу
+        function addTextBlock(text, status, index) {
+            const textBlock = document.createElement('div');
+            textBlock.classList.add('textBlock');
+            textBlock.innerHTML = `
+                <p>${text}</p>
+                <p id="status_${index}" style="color: ${status === 'На рассмотрении' ? 'orange' : (status === 'Одобрено' ? 'green' : 'red')}">${status}</p>
+                <div class="approve-reject-buttons">
+                    <button onclick="approveBlock(${index})">Одобрить</button>
+                    <button onclick="rejectBlock(${index})">Отклонить</button>
+                </div>
+                <button class="delete-button" onclick="deleteBlock(${index})">Удалить</button>
+            `;
+            document.getElementById('textBlocks').appendChild(textBlock);
+
+            // Сохраняем добавленный блок текста в локальное хранилище
+            const savedBlocks = JSON.parse(localStorage.getItem('textBlocks')) || [];
+            savedBlocks.push({ text, status });
+            localStorage.setItem('textBlocks', JSON.stringify(savedBlocks));
+        }
+
+        // Функция для удаления блока текста
+        function deleteBlock(index) {
+            const blockToRemove = document.getElementById(`textBlock_${index}`);
+            blockToRemove.parentNode.removeChild(blockToRemove);
+            // Удалить блок из локального хранилища
+            const savedBlocks = JSON.parse(localStorage.getItem('textBlocks')) || [];
+            savedBlocks.splice(index, 1);
+            localStorage.setItem('textBlocks', JSON.stringify(savedBlocks));
+        }
+
+        // Функция для изменения статуса блока текста на "Одобрено"
+        function approveBlock(index) {
+            document.getElementById(`status_${index}`).textContent = 'Одобрено';
+            updateStatusInStorage(index, 'Одобрено');
+        }
+
+        // Функция для изменения статуса блока текста на "Отказано"
+        function rejectBlock(index) {
+            document.getElementById(`status_${index}`).textContent = 'Отказано';
+            updateStatusInStorage(index, 'Отказано');
+        }
+
+        // Функция для обновления результатов
+        function updateResults() {
+            // Скрыть кнопки Одобрить и Отклонить
+            document.querySelectorAll('.approve-reject-buttons').forEach(button => button.style.display = 'none');
+        }
+
+        // Функция для обновления статуса в локальном хранилище
+        function updateStatusInStorage(index, newStatus) {
+            const savedBlocks = JSON.parse(localStorage.getItem('textBlocks')) || [];
+            savedBlocks[index].status = newStatus;
+            localStorage.setItem('textBlocks', JSON.stringify(savedBlocks));
+        }
+
+        // Функция для выхода из профиля (очистка сохранённых данных)
+        function logout() {
+            localStorage.removeItem('username');
+            localStorage.removeItem('password');
+            localStorage.removeItem('about');
+            localStorage.removeItem('age');
+            localStorage.removeItem('textBlocks'); // Очищаем сохраненные блоки текста
+            alert('Вы успешно вышли из профиля.');
+            window.location.href = "login.html"; // Перенаправляем на страницу логина после выхода
+        }
+
+        // Функция для открытия панели администрации
+        function openAdminPanel() {
+            const adminLogin = prompt('Введите логин администратора:');
+            if (adminLogin === 'Admin') {
+                const adminPassword = prompt('Введите пароль администратора:');
+                if (adminPassword === 'Pass') {
+                    // Показываем кнопки Одобрить и Отклонить
+                    document.querySelectorAll('.approve-reject-buttons').forEach(button => button.style.display = 'block');
+                } else {
+                    alert('Отказано в доступе.');
+                }
+            } else {
+                alert('Отказано в доступе.');
+            }
+        }
+    </script>
+</body>
+</html>
