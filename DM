@@ -1,0 +1,1020 @@
+//index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental Service</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="logo.png" alt="Company Logo" class="logo">
+            <h1 class="company-name">Car Rental Service</h1>
+            <div class="auth-buttons">
+                <button class="login-btn" onclick="window.location.href='login.html'">Войти</button>
+                <button class="register-btn" onclick="window.location.href='register.html'">Регистрация</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="offers">
+            <h2>Наши предложения</h2>
+            <div class="offer-item">
+                <h3>Широкий выбор автомобилей</h3>
+                <p>Мы предлагаем широкий выбор автомобилей на любой вкус и бюджет.</p>
+            </div>
+            <div class="offer-item">
+                <h3>Гибкие условия аренды</h3>
+                <p>Выберите удобный для вас срок аренды от нескольких часов до нескольких месяцев.</p>
+            </div>
+            <div class="offer-item">
+                <h3>Поддержка 24/7</h3>
+                <p>Наша служба поддержки работает круглосуточно, чтобы помочь вам в любой ситуации.</p>
+            </div>
+        </section>
+        <section class="how-it-works">
+            <h2>Как это работает</h2>
+            <div class="step">
+                <h3>Шаг 1: Выбор автомобиля</h3>
+                <p>Выберите автомобиль, который вам нравится, и забронируйте его онлайн.</p>
+            </div>
+            <div class="step">
+                <h3>Шаг 2: Подтверждение брони</h3>
+                <p>Получите подтверждение брони по электронной почте или SMS.</p>
+            </div>
+            <div class="step">
+                <h3>Шаг 3: Получение автомобиля</h3>
+                <p>Заберите автомобиль в указанное время и наслаждайтесь поездкой.</p>
+            </div>
+        </section>
+        <div class="rent-button-container">
+            <button class="rent-btn" onclick="window.location.href='login.html'">Арендовать</button>
+        </div>
+    </main>
+</body>
+</html>
+
+//styles.css
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.company-name {
+    font-size: 24px;
+    margin-right: auto;
+}
+
+.auth-buttons {
+    display: flex;
+}
+
+.auth-buttons button {
+    background-color: #f4b400;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.auth-buttons button:hover {
+    background-color: #e2a300;
+}
+
+main {
+    padding: 20px;
+}
+
+.offers,
+.how-it-works {
+    background-color: white;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.offer-item,
+.step {
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #555;
+}
+
+p {
+    color: #777;
+}
+
+.rent-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.rent-btn {
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.rent-btn:hover {
+    background-color: #357ae8;
+}
+
+//register.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="register-container">
+        <h2>Регистрация</h2>
+        <form action="register_process.php" method="POST">
+            <label for="last_name">Фамилия:</label>
+            <input type="text" id="last_name" name="last_name" required>
+            
+            <label for="first_name">Имя:</label>
+            <input type="text" id="first_name" name="first_name" required>
+            
+            <label for="middle_name">Отчество:</label>
+            <input type="text" id="middle_name" name="middle_name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="confirm_password">Подтвердите пароль:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+            
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" name="phone" required>
+            
+            <label for="driver_license">Номер водительского удостоверения:</label>
+            <input type="text" id="driver_license" name="driver_license" required>
+            
+            <button type="submit">Регистрация</button>
+        </form>
+        <button onclick="window.location.href='login.html'">Уже зарегистрирован</button>
+    </div>
+</body>
+</html>
+
+//register.css
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.register-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4285f4;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #357ae8;
+}
+
+//profile.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="logo.png" alt="Company Logo" class="logo">
+            <h1 class="company-name">Car Rental Service</h1>
+        </div>
+    </header>
+    <main>
+        <section class="profile-section">
+            <h2>Профиль</h2>
+            <div class="personal-info">
+                <h3>Личная информация</h3>
+                <p><strong>Фамилия:</strong> <span id="lastName"></span></p>
+                <p><strong>Имя:</strong> <span id="firstName"></span></p>
+                <p><strong>Отчество:</strong> <span id="middleName"></span></p>
+                <p><strong>Email:</strong> <span id="email"></span></p>
+                <p><strong>Номер телефона:</strong> <span id="phoneNumber"></span></p>
+                <p><strong>Номер водительского удостоверения:</strong> <span id="licenseNumber"></span></p>
+            </div>
+            <div class="car-selection">
+                <h3>Выбор автомобиля</h3>
+                <div class="car-item">
+                    <img src="car1.jpg" alt="Car 1" class="car-image">
+                    <div class="car-details">
+                        <h4>Toyota Camry</h4>
+                        <p>Стоимость аренды: $50 в день</p>
+                        <div class="rental-panel">
+                            <label for="startDate">Начало аренды:</label>
+                            <input type="date" id="startDate" name="startDate">
+                            <label for="endDate">Конец аренды:</label>
+                            <input type="date" id="endDate" name="endDate">
+                            <button onclick="rentCar()">Арендовать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Пример для второго автомобиля -->
+                <div class="car-item">
+                    <img src="car2.jpg" alt="Car 2" class="car-image">
+                    <div class="car-details">
+                        <h4>Honda Civic</h4>
+                        <p>Стоимость аренды: $40 в день</p>
+                        <div class="rental-panel">
+                            <label for="startDate2">Начало аренды:</label>
+                            <input type="date" id="startDate2" name="startDate2">
+                            <label for="endDate2">Конец аренды:</label>
+                            <input type="date" id="endDate2" name="endDate2">
+                            <button onclick="rentCar()">Арендовать</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Получаем данные из localStorage
+        const lastName = localStorage.getItem('lastName');
+        const firstName = localStorage.getItem('firstName');
+        const middleName = localStorage.getItem('middleName');
+        const email = localStorage.getItem('email');
+        const phoneNumber = localStorage.getItem('phoneNumber');
+        const licenseNumber = localStorage.getItem('licenseNumber');
+
+        // Заполняем данные на странице
+        document.getElementById('lastName').textContent = lastName;
+        document.getElementById('firstName').textContent = firstName;
+        document.getElementById('middleName').textContent = middleName;
+        document.getElementById('email').textContent = email;
+        document.getElementById('phoneNumber').textContent = phoneNumber;
+        document.getElementById('licenseNumber').textContent = licenseNumber;
+
+        function rentCar() {
+            alert('Автомобиль успешно арендован!');
+            // Здесь может быть логика для отправки данных на сервер и обработки аренды
+        }
+    </script>
+</body>
+</html>
+
+//profile.css
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.profile-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+h2, h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #555;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="date"], select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4285f4;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #357ae8;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+th {
+    background-color: #4285f4;
+    color: white;
+}
+
+//profile.php
+<?php
+session_start();
+include 'db_connect.php'; 
+
+$user_id = $_SESSION['user_id'];
+
+
+$sql = "SELECT full_name, phone, driver_license FROM user WHERE id=?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$user = $stmt->get_result()->fetch_assoc();
+
+$sql = "SELECT * FROM cars";
+$cars_result = $conn->query($sql);
+
+$sql = "SELECT rentals.*, cars.name, cars.price_per_day FROM rentals 
+        JOIN cars ON rentals.car_id = cars.id 
+        WHERE rentals.user_id=?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$rentals_result = $stmt->get_result();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль пользователя</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Профиль пользователя</h2>
+        <p><strong>ФИО:</strong> <?php echo $user['full_name']; ?></p>
+        <p><strong>Телефон:</strong> <?php echo $user['phone']; ?></p>
+        <p><strong>Номер водительского удостоверения:</strong> <?php echo $user['driver_license']; ?></p>
+
+        <h3>Выбор автомобилей</h3>
+        <form action="rent_car.php" method="POST">
+            <label for="car">Автомобиль:</label>
+            <select id="car" name="car_id">
+                <?php while ($car = $cars_result->fetch_assoc()): ?>
+                    <option value="<?php echo $car['id']; ?>">
+                        <?php echo $car['name'] . " - $" . $car['price_per_day'] . "/день"; ?>
+                    </option>
+                <?php endwhile; ?>
+            </select>
+            <label for="start_date">Дата начала:</label>
+            <input type="date" id="start_date" name="start_date" required>
+            <label for="end_date">Дата окончания:</label>
+            <input type="date" id="end_date" name="end_date" required>
+            <button type="submit">Зарегистрировать</button>
+        </form>
+
+        <h3>История аренды</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Автомобиль</th>
+                    <th>Начало аренды</th>
+                    <th>Окончание аренды</th>
+                    <th>Цена аренды</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($rental = $rentals_result->fetch_assoc()): ?>
+                    <tr>
+                        <td><?php echo $rental['name']; ?></td>
+                        <td><?php echo $rental['start_date']; ?></td>
+                        <td><?php echo $rental['end_date']; ?></td>
+                        <td>
+                            <?php
+                            $start_date = new DateTime($rental['start_date']);
+                            $end_date = new DateTime($rental['end_date']);
+                            $interval = $start_date->diff($end_date);
+                            $days = $interval->days + 1; 
+                            $total_price = $days * $rental['price_per_day'];
+                            echo "$" . number_format($total_price, 2);
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                            if ($rental['status_id'] == 1) echo 'На рассмотрении';
+                            if ($rental['status_id'] == 2) echo 'Одобрено';
+                            if ($rental['status_id'] == 3) echo 'Отказано';
+                            ?>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+//admin.php
+<?php
+session_start();
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
+    header("Location: login.html");
+    exit();
+}
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "car_rental";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT rentals.id, user.full_name, user.phone, user.driver_license, rentals.start_date, rentals.end_date, rental_status.status 
+        FROM rentals 
+        JOIN user ON rentals.user_id = user.id 
+        JOIN rental_status ON rentals.status_id = rental_status.id 
+        WHERE rentals.status_id = 1"; // 'на рассмотрении'
+$result = $conn->query($sql);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $rental_id = $_POST['rental_id'];
+    $action = $_POST['action'];
+    $new_status_id = $action === 'approve' ? 2 : 3; // 'одобрено' или 'отказано'
+
+    $update_sql = "UPDATE rentals SET status_id='$new_status_id' WHERE id='$rental_id'";
+    if ($conn->query($update_sql) === TRUE) {
+        header("Location: admin.php");
+        exit();
+    } else {
+        echo "Ошибка: " . $update_sql . "<br>" . $conn->error;
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ панель</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <h2>Админ панель</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>Телефон</th>
+                    <th>Водительское удостоверение</th>
+                    <th>Дата начала</th>
+                    <th>Дата окончания</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($row = $result->fetch_assoc()): ?>
+                    <tr>
+                        <td><?php echo $row['full_name']; ?></td>
+                        <td><?php echo $row['phone']; ?></td>
+                        <td><?php echo $row['driver_license']; ?></td>
+                        <td><?php echo $row['start_date']; ?></td>
+                        <td><?php echo $row['end_date']; ?></td>
+                        <td>
+                            <form method="POST">
+                                <input type="hidden" name="rental_id" value="<?php echo $row['id']; ?>">
+                                <button type="submit" name="action" value="approve">Одобрить</button>
+                                <button type="submit" name="action" value="deny">Отказать</button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+//admin.css
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.admin-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.status-buttons button {
+    background-color: #4285f4;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.status-buttons button.reject {
+    background-color: #e74c3c;
+}
+
+.status-buttons button:hover {
+    opacity: 0.8;
+}
+
+//update_rental_status.php
+<?php
+include 'db_connect.php'; // Убедитесь, что путь правильный
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $rental_id = $_POST['rental_id'];
+    $status = $_POST['status'];
+
+    $sql = "UPDATE rentals SET status_id = ? WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $status, $rental_id);
+    if ($stmt->execute()) {
+        header('Location: admin.php');
+        exit;
+    } else {
+        echo "Ошибка при обновлении статуса: " . $conn->error;
+    }
+}
+?>
+
+//rent_car.php
+<?php
+session_start();
+include 'db_connect.php'; 
+
+$user_id = $_SESSION['user_id'];
+$car_id = $_POST['car_id'];
+$start_date = $_POST['start_date'];
+$end_date = $_POST['end_date'];
+
+$sql = "INSERT INTO rentals (user_id, car_id, start_date, end_date, status_id) VALUES (?, ?, ?, ?, 1)";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("iiss", $user_id, $car_id, $start_date, $end_date);
+
+if ($stmt->execute()) {
+    header("Location: profile.php");
+} else {
+    echo "Ошибка: " . $stmt->error;
+}
+?>
+
+//register.php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Регистрация</h2>
+        <form action="register_process.php" method="POST">
+            <label for="fullName">ФИО:</label>
+            <input type="text" id="fullName" name="fullName" required><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="phone">Номер телефона:</label>
+            <input type="text" id="phone" name="phone" required><br><br>
+            
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            
+            <label for="confirmPassword">Подтвердите пароль:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
+            
+            <label for="department">Отдел:</label>
+            <select id="department" name="department">
+                <option value="1">Отдел продаж</option>
+                <option value="2">Отдел ремонта</option>
+            </select><br><br>
+            
+            <input type="submit" value="Зарегистрироваться">
+        </form>
+    </div>
+</body>
+</html>
+
+//register_process.php
+<?php
+$servername = "localhost"; 
+$username = "root"; 
+$password = ""; 
+$dbname = "car_rental"; 
+
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+
+$last_name = $_POST['last_name'];
+$first_name = $_POST['first_name'];
+$middle_name = $_POST['middle_name'];
+$email = $_POST['email'];
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$phone = $_POST['phone'];
+$driver_license = $_POST['driver_license'];
+
+
+$full_name = $last_name . ' ' . $first_name . ' ' . $middle_name;
+
+
+$sql = "INSERT INTO `user` (`id_role`, `id_department`, `password`, `full_name`, `phone`, `email`, `driver_license`)
+        VALUES (1, 1, '$password', '$full_name', '$phone', '$email', '$driver_license')";
+
+if ($conn->query($sql) === TRUE) {
+ 
+    header("Location: login.html");
+    exit();
+} else {
+    echo "Ошибка: " . $sql . "<br>" . $conn->error;
+}
+
+
+$conn->close();
+?>
+
+//rent_process
+<?php
+session_start();
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "car_rental";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$user_id = $_SESSION['user_id'];  // Ensure user is logged in and has a session
+$car_id = $_POST['car_id'];
+$start_date = $_POST['start_date'];
+$end_date = $_POST['end_date'];
+
+// Ensure start_date is before end_date
+if (strtotime($start_date) > strtotime($end_date)) {
+    echo "Ошибка: Дата начала аренды не может быть позже даты окончания";
+    exit();
+}
+
+$sql = "INSERT INTO rentals (user_id, car_id, start_date, end_date, status_id) VALUES ('$user_id', '$car_id', '$start_date', '$end_date', 1)";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Запрос на аренду успешно создан.";
+    header("Location: profile.php");  // Redirect to profile after success
+    exit();
+} else {
+    echo "Ошибка: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
+
+//login.php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Авторизация</h2>
+        <form action="login_process.php" method="POST">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            
+            <input type="submit" value="Авторизоваться">
+        </form>
+        <p>Еще не зарегистрированы? <a href="register.php">Зарегистрируйтесь здесь</a></p>
+    </div>
+</body>
+</html>
+
+//db_connect.php
+<?php
+$servername = "localhost"; 
+$username = "root"; 
+$password = ""; 
+$dbname = "car_rental"; 
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+
+//login_process.php
+<?php
+session_start();
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "car_rental";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$email = $_POST['email'];
+$password = $_POST['password'];
+
+if ($email === 'avto' && $password === 'car') {
+    $_SESSION['role'] = 'admin';
+    header("Location: admin.php");
+    exit();
+} else {
+    $sql = "SELECT * FROM `user` WHERE `email` = '$email'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['role'] = 'user';
+            header("Location: profile.php");
+            exit();
+        } else {
+            echo "Неверный пароль";
+        }
+    } else {
+        echo "Пользователь с таким email не найден";
+    }
+}
+
+$conn->close();
+?>
+
+//login.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Авторизация</h2>
+        <form action="login_process.php" method="POST">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Войти</button>
+        </form>
+        <button onclick="location.href='register.html'">Зарегистрироваться</button>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const emailInput = document.getElementById('email');
+            emailInput.addEventListener('input', function() {
+                if (emailInput.value.trim().toLowerCase() === 'avto') {
+                    document.getElementById('password').value = 'car';
+                } else {
+                    document.getElementById('password').value = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+//login.css
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4285f4;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #357ae8;
+}
