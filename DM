@@ -1018,3 +1018,154 @@ button {
 button:hover {
     background-color: #357ae8;
 }
+
+//База данных (car_rental)
+
+//Таблица (cars)
+CREATE TABLE `cars` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `price_per_day` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO `cars` (`id`, `name`, `price_per_day`) VALUES
+(2, 'Honda Accord', '45.00'),
+(12, 'Toyota Corolla', '50.00'),
+(13, 'Ford Focus', '55.00'),
+(14, 'BMW 3 Series', '80.00');
+
+
+ALTER TABLE `cars`
+  ADD PRIMARY KEY (`id`);
+
+
+ALTER TABLE `cars`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+COMMIT;
+
+//Таблица (department)
+CREATE TABLE `department` (
+  `id` int(11) NOT NULL,
+  `code` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO `department` (`id`, `code`, `name`) VALUES
+(1, 'sales', 'Отдел продаж'),
+(2, 'repair', 'Отдел ремонта');
+
+
+ALTER TABLE `department`
+  ADD PRIMARY KEY (`id`);
+
+
+ALTER TABLE `department`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
+//Таблица (rentals)
+CREATE TABLE `rentals` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `car_id` int(11) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `status_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO `rentals` (`id`, `user_id`, `car_id`, `start_date`, `end_date`, `status_id`) VALUES
+(5, 1, 2, '2024-06-22', '2024-06-24', 2),
+(6, 2, 2, '2024-06-22', '2024-06-23', 3),
+(7, 2, 12, '2024-06-23', '2024-06-29', 2),
+(8, 2, 14, '2024-06-23', '2024-06-24', 2),
+(9, 3, 12, '2024-06-23', '2024-06-27', 3),
+(10, 4, 14, '2024-06-23', '2024-06-27', 2);
+
+
+ALTER TABLE `rentals`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `car_id` (`car_id`),
+  ADD KEY `status_id` (`status_id`);
+
+
+ALTER TABLE `rentals`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+
+ALTER TABLE `rentals`
+  ADD CONSTRAINT `rentals_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rentals_ibfk_2` FOREIGN KEY (`car_id`) REFERENCES `cars` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rentals_ibfk_3` FOREIGN KEY (`status_id`) REFERENCES `rental_status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+//Таблица (rental_status)
+CREATE TABLE `rental_status` (
+  `id` int(11) NOT NULL,
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `rental_status` (`id`, `status`) VALUES
+(1, 'на рассмотрении'),
+(2, 'одобрено'),
+(3, 'отказано');
+
+ALTER TABLE `rental_status`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `rental_status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
+
+//Таблица (role)
+CREATE TABLE `role` (
+  `id` int(11) NOT NULL,
+  `code` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO `role` (`id`, `code`, `name`) VALUES
+(1, 'user', 'Зарегистрированный пользователь'),
+(2, 'admin', 'Администратор');
+
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `role`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
+//Таблица (user)
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `id_role` int(11) NOT NULL,
+  `id_department` int(11) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `full_name` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `driver_license` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `user` (`id`, `id_role`, `id_department`, `password`, `full_name`, `phone`, `email`, `driver_license`) VALUES
+(1, 1, 1, '$2y$10$KRcuf/eIsq6oIfquJ25bt.XZrA2rlbZC6aSLahXdpc4WD.LCTXM.G', 'По Шо Ле', '222', '111@gm.com', '333'),
+(2, 1, 1, '$2y$10$/6snsI3aU8cjB8//vQc5iOXsU0L3n5pI17JGTr0dU4bhmrP/3WpY.', 'Cf Fd da', '+111', '222@yandex.ru', '331112'),
+(3, 1, 1, '$2y$10$AHiqgE1A/SA5fFUPKINObuHbIundPELgN/OmO21eqW/xZvuzq/raS', 'Сол Акл Меле', '+79365477377', 'maw@yandex.ru', '78686565856'),
+(4, 1, 1, '$2y$10$NK6FMXwbpCeYXITKN10gRuv.akidw0vcF2MEx0tkc7c3RQ0UVc0JG', 'Солкм Махем Корме', '89259379399', 'faar@yandex.ru', '545675357578');
+
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_role` (`id_role`),
+  ADD KEY `id_department` (`id_department`);
+
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`id_department`) REFERENCES `department` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
