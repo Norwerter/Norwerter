@@ -804,7 +804,7 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 ?>
 
-//rent_process
+//rent_process.php
 <?php
 session_start();
 $servername = "localhost";
